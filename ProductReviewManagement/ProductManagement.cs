@@ -31,13 +31,13 @@ namespace ProductReviewManagement
         {
             foreach (ProductReview productReview in products)
             {
-                Console.WriteLine("ProductId="+productReview.ProductId + "\t" + "UserId:"+productReview.UserId + "\t" + "Review:"+productReview.Review + "\t" +
-                                  "Rating:"+productReview.Rating + "\t" + "IsLike:"+productReview.IsLike);
+                Console.WriteLine("ProductId=" + productReview.ProductId + "\t" + "UserId:" + productReview.UserId + "\t" + "Review:" + productReview.Review + "\t" +
+                                  "Rating:" + productReview.Rating + "\t" + "IsLike:" + productReview.IsLike);
             }
         }
         //Method to Retrieve Top 3 records
         public void RetrieveTop3Records(List<ProductReview> products)
-        {         
+        {
             try
             {
                 //LINQ query
@@ -60,9 +60,27 @@ namespace ProductReviewManagement
             try
             {
                 //LINQ query
-                var ratingRes = list.Where(p => p.Rating > 3 && (p.ProductId == 1 || p.ProductId == 4 || p.ProductId == 9)).ToList();              
+                var ratingRes = list.Where(p => p.Rating > 3 && (p.ProductId == 1 || p.ProductId == 4 || p.ProductId == 9)).ToList();
                 Console.WriteLine("Retrieve records whose Rating is Greater than 3 and ProductId is 1,4,9");
                 IterateOverProductList(ratingRes);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        //Method to Count of Records as per ProductId
+        public void CountOfRecordsByProductId(List<ProductReview> list)
+        {
+            try
+            {
+                //LINQ query
+                var CountProductId = (list.GroupBy(p => p.ProductId).Select(x => new { ProductId = x.Key , count = x.Count() })).ToList();
+                Console.WriteLine("Count of Records as per ProductId");
+                foreach (var product in CountProductId)
+                {
+                    Console.WriteLine("ProductId:"+product.ProductId+"\t"+"Count:"+product.count);
+                }
             }
             catch (Exception ex)
             {

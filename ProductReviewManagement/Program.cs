@@ -24,7 +24,8 @@ namespace ProductReviewManagement
             var products =  p.AddMultipleProductReviewList();
             //p.IterateOverProductList(products);
             //p.RetrieveTop3Records(products);
-            p.GetRecordesAsPerRatingsAndProductId(products);
+            //p.GetRecordesAsPerRatingsAndProductId(products);
+            p.CountOfRecordsByProductId(products);
         }
     }
 }
