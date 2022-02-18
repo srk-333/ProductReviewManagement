@@ -9,11 +9,18 @@ namespace ProductReviewManagement
 {
     public class Program
     {
+        //Entry Point
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Product Review Management");
-            DisplayProducts.CreateDataTable();
+            InvokeProductManag();
+            //DisplayProducts.CreateDataTable();
             Console.ReadKey();
+        }
+        //Method to Invoke Product Management class
+        public static void InvokeProductManag()
+        {
+            ProductManagement.AddMultipleProductReviewList();
         }
     }
 }
