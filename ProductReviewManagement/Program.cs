@@ -20,7 +20,10 @@ namespace ProductReviewManagement
         //Method to Invoke Product Management class
         public static void InvokeProductManag()
         {
-            ProductManagement.AddMultipleProductReviewList();
+            ProductManagement p = new ProductManagement();
+            var products =  p.AddMultipleProductReviewList();
+            //p.IterateOverProductList(products);
+            p.RetrieveTop3Records(products);
         }
     }
 }
