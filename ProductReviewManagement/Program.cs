@@ -23,7 +23,8 @@ namespace ProductReviewManagement
             ProductManagement p = new ProductManagement();
             var products =  p.AddMultipleProductReviewList();
             //p.IterateOverProductList(products);
-            p.RetrieveTop3Records(products);
+            //p.RetrieveTop3Records(products);
+            p.GetRecordesAsPerRatingsAndProductId(products);
         }
     }
 }

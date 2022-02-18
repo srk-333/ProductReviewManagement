@@ -54,5 +54,20 @@ namespace ProductReviewManagement
                 Console.WriteLine(ex.Message);
             }
         }
+        //Method to Retrieve records whose Rating is Greater than 3 and ProductId is 1,4,9
+        public void GetRecordesAsPerRatingsAndProductId(List<ProductReview> list)
+        {
+            try
+            {
+                //LINQ query
+                var ratingRes = list.Where(p => p.Rating > 3 && (p.ProductId == 1 || p.ProductId == 4 || p.ProductId == 9)).ToList();              
+                Console.WriteLine("Retrieve records whose Rating is Greater than 3 and ProductId is 1,4,9");
+                IterateOverProductList(ratingRes);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
