@@ -28,12 +28,19 @@ namespace ProductReviewManagement
         /// <param name="table">The table.</param>
         public static void GetDataFromDataTable(DataTable table)
         {
-            //Query syntax of LINQ
-            var ProductNames = (from product in table.AsEnumerable() select product.Field<string>("ProductName"));
-            //iterate loop to get ProductName.
-            foreach (string p in ProductNames)
+            try
             {
-                Console.WriteLine("Product Name:"+p);
+                //Query syntax of LINQ
+                var ProductNames = (from product in table.AsEnumerable() select product.Field<string>("ProductName"));
+                //iterate loop to get ProductName.
+                foreach (string p in ProductNames)
+                {
+                    Console.WriteLine("Product Name:" + p);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
