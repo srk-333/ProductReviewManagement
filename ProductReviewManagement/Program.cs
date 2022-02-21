@@ -13,8 +13,7 @@ namespace ProductReviewManagement
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Product Review Management");
-            InvokeProductManag();
-            //DisplayProducts.CreateDataTable();
+            InvokeProductManag();         
             Console.ReadKey();
         }
         //Method to Invoke Product Management class
@@ -22,10 +21,19 @@ namespace ProductReviewManagement
         {
             ProductManagement p = new ProductManagement();
             var products =  p.AddMultipleProductReviewList();
-            //p.IterateOverProductList(products);
-            //p.RetrieveTop3Records(products);
-            //p.GetRecordesAsPerRatingsAndProductId(products);
+            p.IterateOverProductList(products);
+            p.RetrieveTop3Records(products);
+            p.GetRecordesAsPerRatingsAndProductId(products);
             p.CountOfRecordsByProductId(products);
-        }
+            p.RecordsByProductIdAndReview(products);
+            p.SkipTop5Records(products);
+            Console.WriteLine("Work on Data Table ");
+            DisplayProducts.CreateDataTable();
+            DisplayProducts.GetDataFromDataTable();
+            DisplayProducts.GetAllLikedReviews();
+            DisplayProducts.AverageRatingOfEachProductId(products);
+            DisplayProducts.RecordWithReviewGood(products);
+            DisplayProducts.RetrieveRecordsWithUserId10(products);             
+        }     
     }
 }
